@@ -2,6 +2,7 @@
 //let salvar = prompt('pone algo a ver si lo puedo guardar');
 
 //console.log(salvar);
+/*
 let quiero = true;
 function mercadito(){
 do {
@@ -59,4 +60,47 @@ do {
 }
 
 mercadito();
+*/
 
+let bol = true
+
+
+let todo = [];
+
+function agregarArray(x) {
+
+    todo.push(x)
+}
+function borraArray() {
+    todo.pop()
+}
+
+function mostrarArray(){
+    alert(todo);
+    console.log(todo.join(' * '));
+}
+
+alert('Simulador de agregar cosas')
+do {
+    let pregunta = prompt('agregar,borrar,mostrar o cerrar')
+    if (pregunta == 'agregar') {
+        let oi = prompt('agrega algo al array')
+        agregarArray(oi);
+    }else if(pregunta == 'borrar'){
+        let cuenta = todo.length 
+        let nose =   cuenta -1;
+        alert(`vamos a borrar el ultimo content del array. ${todo[nose]} fue borrado del array`)
+        borraArray()
+    }else if(pregunta == 'mostrar'){
+        mostrarArray();
+    }else if(pregunta == 'cerrar'){
+        bol= false
+        console.log('Enhorabuena se cerro todo, ok')
+    }else{
+        alert('esa opcion no existe, hace todo de nuevo :(')
+    }
+
+    console.log('se agrego correctamente la info')
+}while(bol)
+
+console.log(todo);
