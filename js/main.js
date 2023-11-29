@@ -62,37 +62,46 @@ do {
 mercadito();
 */
 
+const input = document.getElementById("input")
+function buscar(x){
+    const busca= todo.filter(e => e.nombre= x)
+    console.log(busca)
+}
+
 let bol = true
 
 
 let todo = [];
 
-function agregarArray(x) {
 
-    todo.push(x)
+function agregarArray(x) {
+let ob= {nombre:x}
+    todo.push(ob)
 }
 function borraArray() {
     todo.pop()
 }
 
 function mostrarArray(){
-    alert(todo);
-    console.log(todo.join(' * '));
+   let mostrar= todo.forEach(function(e){console.log(e)})
+    alert('El contenido se muestro en la consola')
+    console.log(mostrar)
 }
 
-alert('Simulador de agregar cosas')
+alert('Simulador de agregar cosas. Se ve todo en consola')
 do {
-    let pregunta = prompt('agregar,borrar,mostrar o cerrar')
+    let pregunta = prompt('agregar,borrar,mostrar, buscar o cerrar')
     if (pregunta == 'agregar') {
         let oi = prompt('agrega algo al array')
         agregarArray(oi);
     }else if(pregunta == 'borrar'){
-        let cuenta = todo.length 
-        let nose =   cuenta -1;
-        alert(`vamos a borrar el ultimo content del array. ${todo[nose]} fue borrado del array`)
+        alert('se borro el ultimo alemento correctamente')
         borraArray()
     }else if(pregunta == 'mostrar'){
         mostrarArray();
+    }else if(pregunta == 'buscar'){
+        let busqueda = prompt('ingresa lo q queres buscar')
+        buscar(busqueda)
     }else if(pregunta == 'cerrar'){
         bol= false
         console.log('Enhorabuena se cerro todo, ok')
@@ -104,3 +113,6 @@ do {
 }while(bol)
 
 console.log(todo);
+
+
+
