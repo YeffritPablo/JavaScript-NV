@@ -60,7 +60,7 @@ do {
 }
 
 mercadito();
-*/
+
 
 const input = document.getElementById("input")
 function buscar(x){
@@ -113,6 +113,54 @@ do {
 }while(bol)
 
 console.log(todo);
+*/
+
+const boton = document.getElementById('boton')
+const nome = document.getElementById('nombre')
+const edad = document.getElementById('edad')
+const mascota = document.getElementById('mascota')
+const cards = document.getElementById('tarjetas')
+const mostrar = document.getElementById('mostrar')
+
+function Persona(nome,edad,mascota){
+    this.nome = nome,
+    this.edad = edad,
+    this.mascota = mascota
+}
+
+const persona =JSON.parse(localStorage.getItem('personas')) || []
 
 
+function agregarPersona(){
+    const nombre = nome.value
+    const age = edad.value
+    const pet = mascota.value
 
+    const newPersonas = new Persona(nombre,age,pet)
+localStorage.setItem('personas',JSON.stringify(persona))
+persona.push(newPersonas)
+
+nome.value=''
+edad.value = ''
+mascota.value= ''
+}
+
+boton.addEventListener('click',agregarPersona)
+
+function mostrarTarjetas(){
+    cards.innerHTML= ''
+
+    const card = document.createElement('div')
+    persona.forEach(function (personas) {
+    card.className = 'card'
+        card.innerHTML += 
+    `<h2>${personas.nome}</h2>
+    <p>${personas.edad}</p>
+    <p>${personas.mascota}</p>`
+    cards.appendChild(card)
+    console.log(personas)
+    console.log('hola')
+    });
+   
+}
+mostrar.addEventListener('click',mostrarTarjetas)
